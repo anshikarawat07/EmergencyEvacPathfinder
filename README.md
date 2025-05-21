@@ -18,8 +18,8 @@ During emergencies such as natural disasters, fires, or road blockages, rapid an
 emergency-evacuation/
 ├── evacuation.cpp              # C++ backend for Dijkstra's algorithm
 ├── roads.csv             # Road network with traffic data
-├── coordinates.csv       # Coordinates for locations
-├──safezones.csv         # List of hospitals/shelters with coordinates
+├── coordinate.csv       # Coordinates for locations
+├──safezone.csv         # List of hospitals/shelters with coordinates
 ├──app.py                # Streamlit frontend
 ├── requirements.txt          # Python dependencies
 └── README.md                 # Project documentation (this file)
