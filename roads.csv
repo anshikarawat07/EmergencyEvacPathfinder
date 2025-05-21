@@ -1,0 +1,205 @@
+Node1,Node2,Distance,Time,Traffic
+Survey Chowk,Subhash Road,1,3,1
+Survey Chowk,Clock Tower,1,6,3
+GMS Road,Dalanwala,7,20,5
+Clock Tower,Shahastradhara Road,7,15,3
+Clock Tower,Subhash Road,0.6,2,2
+Indira Nagar,Brahmanwala,5,15,1
+Raipur Chowk,Doon Hospital,8,20,3
+Aman Vihar,Balliwala,12,30,2
+Pacific Mall,Clock Tower,8,18,3
+Clock Tower,Patel Nagar,3,11,4
+Nathanpur Chowk,Raipur Road,4,10,1
+Raipur Road,Rajpur Road,7,15,1
+Kargi Chowk,ISBT,3,5,1
+ISBT,Clement Town,3,8,2
+ISBT,Shimla Bypass,1,3,1
+Kargi Chowk,Rispana,6,10,1
+Haridwar Bypass,ISBT,4,7,1
+Gandhi Park,Garhi Cant,5,9,1
+Patel Nagar,Subhash Road,3,7,2
+ISBT,Paltan Bazaar,6,13,2
+Paltan Bazaar,Survey Chowk,2,7,3
+Ballupur Chowk,Clock Tower,5,12,2
+Haridwar Bypass,Nehru Colony,5,8,1
+Nehru Colony,Rajpur Road,4,10,2
+Centrio Mall,Nehru Colony,6,13,2
+Rajpur Road,Ballupur Chowk,2,4,0
+Ballupur Chowk,Clock Tower,3,7,2
+Sahastradhara,Shastradhara Road,4,7,0
+Sahastradhara Road,Pacific Mall,5,10,3
+Clock Tower,Araghar,3,7,0
+Clock Tower,Balliwala,6,10,1
+Jogiwala,Doiwala,15,22,
+Karanpur,Survey Chowk,1,3,0
+Mothrowala,Karanpur,8,16,2
+Jogiwala,ISBT,9,15,1
+Mohkampur,Brahmanwala,7,15,2
+Anarwala,Clock Tower,7,15,4
+Seemadwar,Shastradhara Road,23,48,5
+Mohkampur,Ballupur,11,24,4
+Gandhi Park,Nathanpur,6,12,3
+Karanpur,Gandhi Park,3,7,0
+Kedar Puram,Rispana,3,8,4
+Chakrata Road,Brahmanwala,48,80,3
+Malsi Deer Park,Mohkampur,15,30,1
+Clock Tower,Balliwala,6,11,1
+Doiwala,Raiwala,23,27,0
+Doiwala,Subhash Road,19,27,2
+EC Road,Gandhi Park,2,4,2
+Shastradhara Road,Doiwala,25,37,1
+Rispana,Aman Vihar,10,20,3
+Indira Nagar,Prem Nagar,6,13,2
+Clock Tower,FRI,7,15,3
+Anarwala,Aman Vihar,11,22,3
+Clement Town,Pacific Mall,15,32,4
+Raipur,Seemadwar,12,27,5
+Dalanwala,Selaqui,24,41,4
+Mothrowala,Selaqui,30,52,3
+Rispana,Selaqui,26,44,4
+Clement Town,Nathanpur,12,25,3
+Paltan Bazaar,ISBT,5,12,4
+Mohkampur,Jakhan,12,24,2
+Aman Vihar,Pacific Mall,5,10,2
+Gandhi Park,Majra,7,17,0
+EC Road,Aman Vihar,6,12,2
+Suddhowala,Chakrata Road,34,51,2
+Gandhi Park,Clement Town,10,23,3
+Dalanwala,Karanpur,3,6,2
+Gandhi Park,Raiwala,41,50,0
+Prem Nagar,Nathanpur,14,28,3
+Dalanwala,Raipur,7,13,2
+Vikas Nagar,Doiwala,57,83,1
+Nathanpur,Rajpur Road,6,13,2
+Survey Chowk,Clock Tower,2,4,1
+Haridwar Bypass,Patel Nagar,10,30,5
+Clock Tower,Karanpur,2,5,3
+Malsi Deer Park,Kaulagarh Road,10,20,2
+Turner Road,Vikas Nagar,40,65,2
+Kedarpuram,Aman Vihar,11,23,3
+Selakui,Paltan Bazaar,22,37,2
+Mussoorie Diversion,FRI,12,25,3
+Selakui,Jakhan,27,45,2
+Kargi Chowk,Ballupur,7,14,2
+Dalanwala,Kaulagarh Road,7,16,3
+ISBT,Sahastradhara,23,40,2
+Jakhan,Indira Nagar,11,24,3
+Haridwar Bypass,Patel Nagar,5,10,2
+Gandhi Park,Kaulagarh Road,4,8,4
+Shastradhara Road,Gandhi Park,15,32,3
+Garhi Cantt,Raiwala,45,55,0
+Selakui,Mohkampur,28,51,2
+Pacific Mall,Patel Nagar,11,22,3
+Paltan Bazaar,Selaqui,22,36,2
+Gandhi Park,Suddhowala,12,21,2
+Raiwala,Selakui,62,80,2
+Doon Hospital,Brahmanwala,6,13,3
+Selaqui,Aman Vihar,6,13,3
+Seemadwar,Doiwala,25,35,2
+ISBT,EC Road,8,16,2
+Paltan Bazaar,FRI,6,13,3
+Indira Nagar,Kedarpuram,10,23,3
+FRI,Kaulagarh Road,3,6,2
+Dalanwala,Rajpur Road,2,7,4
+Indira Nagar,Rajpur Road,6,14,3
+Shastradhara Road,Doiwala,28,46,2
+Garhi Cantt,Paltan Bazaar,6,15,3
+Patel Nagar,Suddhowala,11,20,2
+Garhi Cantt,Chakrata Road,47,70,2
+Rajpur Road,Seemadwar,8,17,4
+Clock Tower,Haridwar Bypass,7,15,3
+Araghar,Pacific Mall,7,12,4
+Majra,Vikas Nagar,37,55,1
+Balliwala,Doon Hospital,5,12,3
+FRI,Suddhowala,8,14,2
+Araghar,Ballupur,6,13,3
+Sahastradhara,Majra,21,44,3
+Doiwala,Karanpur,20,28,5
+Pacific Mall,Mussoorie Diversion,1,2,3
+Malsi Deer Park,Araghar,11,21,2
+Anarwala,Doiwala,25,38,2
+Paltan Bazaar,Survey Chowk,4,9,3
+Anarwala,Brahmanwala,12,25,3
+Indira Nagar,Clement Town,7,16,3
+Kaulagarh Road,GMS Road,4,8,2
+Subhash Road,Mothrowala,7,16,3
+Survey Chowk,Raipur,5,10,2
+Mussoorie Diversion,Rispana,11,20,2
+Chakrata Road,Turner Road,47,75,5
+Mothrowala,Clement Town,10,21,3
+Nathanpur,Gandhi Park,7,12,2
+Karanpur,Suddhowala,14,23,2
+Doiwala,Ballupur,23,34,3
+Dalanwala,Doon Hospital,2,5,3
+Rispana,Selakui,26,41,2
+Raiwala,Indira Nagar,46,60,1
+Vikas Nagar,Anarwala,40,62,2
+Karanpur,Balliwala,8,15,3
+Nathanpur,Rispana,4,8,2
+Survey Chowk,Doon Hospital,2,3,0
+Prem Nagar,Garhi Cantt,11,20,2
+Mussoorie Diversion,Nathanpur,11,21,2
+Seemadwar,Sahastradhara,21,42,3
+Karanpur,Haridwar Bypass,7,13,2
+Dalanwala,Karanpur,3,5,1
+Clement Town,Raipur,16,27,2
+FRI,Subhash Road,6,12,2
+Mohkampur,Paltan Bazaar,7,17,4
+Clock Tower,Brahmanwala,8,17,3
+Kargi Chowk,Paltan Bazaar,5,11,3
+FRI,Shastradhara Road,21,40,2
+Vikas Nagar,Suddhowala,26,40,2
+Doiwala,GMS Road,23,33,2
+Jakhan,Mothrowala,13,27,2
+Seemadwar,FRI,8,16,3
+Haridwar Bypass,Prem Nagar,13,25,3
+Paltan Bazaar,Malsi Deer Park,10,20,3
+Kaulagarh Road,Araghar,5,11,3
+Survey Chowk,Aman Vihar,5,11,3
+Mussoorie Diversion,Mohkampur,13,26,2
+Doon Hospital,Brahmanwala,5,18,3
+Doon Hospital,Subhash Road,1,1,3
+Max Super Specialty Hospital,Paltan Bazaar,9,26,2
+Himalayan Hospital,Gandhi Park,23,40,1
+Shri Mahant Indiresh Hospital,Patel Nagar,1,3,1
+Aarogyadham Super Specialty Hosp,Clock Tower,1,3,2
+Velmed Hospital,FRI,10,27,3
+CMI Hospital,Clock Tower,2,3,1
+Baluni Hospital,Gandhi Park,7,18,2
+Asha Multispeciality Hospital,Survey Chowk,5,15,2
+Vibhuti Hospital,Nehru Colony,10,25,2
+Kailash Medical & Research Ctr,Rajpur Road,5,15,3
+S.K Memorial Hospital,Gandhi Park,2,5,1
+Nirmal Ashram Eye Institute,Clock Tower,3,7,3
+Nephroplus Dialysis Center,Paltan Bazaar,3,13,3
+Ganga Mata Charitable Eye Hosp,Survey Chowk,2,5,1
+Rewati Nursing Home,Subhash Road,3,9,3
+SMI Hospital,Gandhi Park,5,14,3
+Uttaranchal Hospital,Clock Tower,8,18,2
+Drishti Eye Institute & Dehradun Wave Lasik,FRI,6,16,3
+Nanda Hospital,Paltan Bazaar,5,16,3
+Luthra Nursing Home,Gandhi Park,2,6,3
+Doon Eye Care Hospital,Rajpur Road,1,4,3
+Dehradun Trauma Center,Survey Chowk,3,6,2
+Dehradun Care Hospital,Clock Tower,7,20,3
+City Clinic ,Gandhi Park,2,5,1
+Kailash Hospital,Subhash Road,5,13,2
+Fortis Hospital Dehradun,Paltan Bazaar,3,11,2
+Shishu Children’s Hospital,Clock Tower,6,16,1
+Vinayak Hospital,Survey Chowk,9,18,2
+Paras Hospital Dehradun,Gandhi Park,1,4,1
+Ruby Hospital & Heart Care,Subhash Road,9,25,3
+Surya Hospital,Paltan Bazaar,5,14,2
+Ashirwad Hospital,Gandhi Park,5,10,2
+Ganesh Hospital,Rajpur Road,4,13,3
+Siddhartha Hospital,Survey Chowk,9,20,1
+Doon Hospital,Gandhi Park,1,4,1
+Medanta Hospital (Clinic/Center),Paltan Bazaar,2,7,2
+Sai Hospital,Clock Tower,19,33,2
+Anmol Hospital,Survey Chowk,6,14,1
+Life Care Hospital,Gandhi Park,10,28,1
+New Life Hospital,Rajpur Road,1,4,1
+Dehradun Eye Hospital,Clock Tower,1,4,2
+City Hospital,Gandhi Park,1,4,1
+Govind Hospital,Survey Chowk,6,14,2
+Shree Ram Hospital,Paltan Bazaar,4,11,3
