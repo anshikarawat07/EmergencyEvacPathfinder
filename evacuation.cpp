@@ -6,8 +6,10 @@
 #include <queue>
 #include <limits>
 #include <algorithm>
+#include <cstdlib>
 using namespace std;
 
+// Utility: Split string by delimiter
 vector<string> split(const string& s, char delimiter) {
     vector<string> tokens;
     string token;
@@ -18,12 +20,12 @@ vector<string> split(const string& s, char delimiter) {
     return tokens;
 }
 
-// Graph loader
+// Build graph from CSV
 map<string, map<string, pair<float, float>>> buildGraph(const string& filename) {
     map<string, map<string, pair<float, float>>> graph;
     ifstream file(filename);
     string line;
-    getline(file, line); // Skip header
+    getline(file, line); // skip header
     while (getline(file, line)) {
         auto fields = split(line, ',');
         if (fields.size() < 5) continue;
@@ -42,7 +44,7 @@ map<string, map<string, pair<float, float>>> buildGraph(const string& filename) 
     return graph;
 }
 
-// Hospital list loader
+// Load hospital/safezone names
 vector<string> loadHospitals(const string& filename) {
     vector<string> hospitals;
     ifstream file(filename);
@@ -57,57 +59,82 @@ vector<string> loadHospitals(const string& filename) {
     return hospitals;
 }
 
-// Dijkstra algorithm
-vector<string> dijkstra(
+// DFS for path reconstruction
+void dfsPaths(const string& current, const string& start,
+              const map<string, vector<string>>& prev,
+              vector<string>& path, vector<vector<string>>& allPaths) {
+    path.push_back(current);
+    if (current == start) {
+        vector<string> validPath = path;
+        reverse(validPath.begin(), validPath.end());
+        allPaths.push_back(validPath);
+    } else {
+        map<string, vector<string>>::const_iterator it = prev.find(current);
+        if (it != prev.end()) {
+            for (size_t i = 0; i < it->second.size(); ++i) {
+                dfsPaths(it->second[i], start, prev, path, allPaths);
+            }
+        }
+    }
+    path.pop_back();
+}
+
+// Dijkstra's algorithm to find all shortest paths
+vector<vector<string>> dijkstraAllPaths(
     const map<string, map<string, pair<float, float>>>& graph,
     const string& start, const string& end,
     float& totalTime, float& totalDist
 ) {
     map<string, float> minTime;
     map<string, float> dist;
-    map<string, string> prev;
+    map<string, vector<string>> prev;
     priority_queue<pair<float, string>, vector<pair<float, string>>, greater<pair<float, string>>> pq;
 
-    for (map<string, map<string, pair<float, float>>> it = graph.begin(); it != graph.end(); ++it) {
+    for (map<string, map<string, pair<float, float>>>::const_iterator it = graph.begin(); it != graph.end(); ++it) {
         minTime[it->first] = numeric_limits<float>::infinity();
+        dist[it->first] = numeric_limits<float>::infinity();
     }
+
     minTime[start] = 0.0;
-    distSoFar[start] = 0.0;
+    dist[start] = 0.0;
     pq.push(make_pair(0.0, start));
 
     while (!pq.empty()) {
-        float curTime = pq.top().first;
-        string node = pq.top().second;
+        pair<float, string> top = pq.top();
         pq.pop();
 
+        float curTime = top.first;
+        string node = top.second;
+
         if (node == end) break;
+
         const map<string, pair<float, float>>& neighbors = graph.at(node);
-        for (auto it = neighbors.begin(); it != neighbors.end(); ++it) {
+        for (map<string, pair<float, float>>::const_iterator it = neighbors.begin(); it != neighbors.end(); ++it) {
             string neigh = it->first;
             float timeCost = it->second.first;
             float newTime = curTime + timeCost;
-            if (newTime < minTime[neigh]|| (newTime == minTime[neighbor] && totalDistance[node] + edgeDist < totalDistance[neighbor])) {
+            float newDist = dist[node] + it->second.second;
+
+            if (newTime < minTime[neigh]) {
                 minTime[neigh] = newTime;
-                dist[neigh] = distSoFar[node] + it->second.second;
-                prev[neigh] = node;
+                dist[neigh] = newDist;
+                prev[neigh] = vector<string>(1, node);
                 pq.push(make_pair(newTime, neigh));
+            } else if (newTime == minTime[neigh] && newDist == dist[neigh]) {
+                prev[neigh].push_back(node);
             }
         }
     }
 
-    vector<string> path;
-    string at = end;
-    if (start != end && prev.find(at) == prev.end()) return {};
-    while (at != start) {
-        path.push_back(at);
-        at = prev[at];
-    }
-    path.push_back(start);
-    reverse(path.begin(), path.end());
-
     totalTime = minTime[end];
-    totalDist = distSoFar[end];
-    return path;
+    totalDist = dist[end];
+
+    vector<vector<string>> allPaths;
+    if (prev.find(end) != prev.end()) {
+        vector<string> temp;
+        dfsPaths(end, start, prev, temp, allPaths);
+    }
+    return allPaths;
 }
 
 int main(int argc, char* argv[]) {
@@ -119,37 +146,42 @@ int main(int argc, char* argv[]) {
     }
 
     int mode = atoi(argv[1]);
-    auto graph = buildGraph("roads.csv");
+    map<string, map<string, pair<float, float>>> graph = buildGraph("roads.csv");
 
     if (mode == 1 && argc == 4) {
         string start = argv[2], end = argv[3];
         float t = 0, d = 0;
-        auto path = dijkstra(graph, start, end, t, d);
-        if (path.empty()) {
+        vector<vector<string>> allPaths = dijkstraAllPaths(graph, start, end, t, d);
+
+        if (allPaths.empty()) {
             cout << "Path: \nNo valid path found.\n";
         } else {
-            cout << "Path: ";
-            for (size_t i = 0; i < path.size(); ++i) {
-                cout << path[i];
-                if (i < path.size() - 1) cout << " -> ";
+            cout << "Fastest evacuation time: " << t << " minutes\n";
+            cout << "Shortest distance: " << d << " km\n";
+            cout << "All optimal paths:\n";
+            for (size_t i = 0; i < allPaths.size(); ++i) {
+                for (size_t j = 0; j < allPaths[i].size(); ++j) {
+                    cout << allPaths[i][j];
+                    if (j < allPaths[i].size() - 1) cout << " -> ";
+                }
+                cout << '\n';
             }
-            cout << "\nDistance: " << d << "\nTotal Time: " << t << " minutes\n";
         }
     } else if (mode == 2 && argc == 3) {
         string start = argv[2];
-        string  hospitals = loadHospitals("safezone.csv");
+        vector<string> hospitals = loadHospitals("safezone.csv");
 
         float bestTime = numeric_limits<float>::infinity(), bestDist = 0;
         vector<string> bestPath;
         string nearestHospital;
 
-        for (int i = 0; i < hospitals.size(); ++i) {
+        for (size_t i = 0; i < hospitals.size(); ++i) {
             float t = 0, d = 0;
-            auto path = dijkstra(graph, start, hospitals[i], t, d);
-            if (!path.empty() && t < bestTime) {
+            vector<vector<string>> paths = dijkstraAllPaths(graph, start, hospitals[i], t, d);
+            if (!paths.empty() && t < bestTime) {
                 bestTime = t;
                 bestDist = d;
-                bestPath = path;
+                bestPath = paths[0];
                 nearestHospital = hospitals[i];
             }
         }
@@ -159,7 +191,7 @@ int main(int argc, char* argv[]) {
         } else {
             cout << "Nearest Hospital: " << nearestHospital << endl;
             cout << "Path: ";
-            for (int i = 0; i < bestPath.size(); ++i) {
+            for (size_t i = 0; i < bestPath.size(); ++i) {
                 cout << bestPath[i];
                 if (i < bestPath.size() - 1) cout << " -> ";
             }
