@@ -1,121 +1,95 @@
-# 🚨 Emergency Evacuation Pathfinding
+# Emergency Evacuation Pathfinding
 
-This project provides a robust emergency evacuation pathfinding system that computes the shortest and safest path from any location to a designated destination or the nearest safe zone (e.g., hospital or shelter) considering traffic conditions and road risks.
+## Project Overview
 
-## 🔍 Project Overview
+This project provides a system to find the fastest evacuation routes during emergencies, considering traffic conditions on roads. It uses a C++ backend implementing Dijkstra’s algorithm to calculate the shortest travel time paths, and a Python Streamlit frontend for interactive visualization and user interaction.
 
-During emergencies such as natural disasters, fires, or road blockages, rapid and safe evacuation is crucial. This project uses a **C++ backend** to compute optimal evacuation routes based on traffic-adjusted time using **Dijkstra's algorithm**, and a **Python Streamlit frontend** for interactive map visualization.
+The system supports two main modes:
 
-### Key Features
-- Shortest path calculation based on **real traffic data**.
-- Evacuation routing to a specified destination or **nearest safe zone**.
-- Map-based visualization using **Streamlit** and **OpenRouteService**.
-- Supports both manual and automatic location detection.
+* Find shortest path from a selected start location to a selected end location.
+* Automatically find the shortest path from a start location to the nearest hospital.
 
-## 📁 File Structure
+**Note:** This project and the underlying data (roads, hospitals, coordinates) are specific to the city of **Dehradun, India**.
 
-```
-emergency-evacuation/
-├── evacuation.cpp              # C++ backend for Dijkstra's algorithm
-├── roads.csv             # Road network with traffic data
-├── coordinate.csv       # Coordinates for locations
-├──safezone.csv         # List of hospitals/shelters with coordinates
-├──app.py                # Streamlit frontend
-├── requirements.txt          # Python dependencies
-└── README.md                 # Project documentation (this file)
-```
+## Features
 
-## ⚙️ Backend (C++11)
+* Calculates evacuation paths with traffic-adjusted travel times.
+* Displays hospital details like phone number, capacity, specialization, and emergency services.
+* Visualizes routes on interactive maps using Folium and OpenRouteService.
+* User-friendly web interface built with Streamlit.
+* Uses CSV files for static data inputs including roads, hospitals, and coordinates specific to Dehradun.
 
-### Functionality
+## Technologies & Tools Used
 
-- **Mode 1**: Find the shortest path from **source** to **destination**.
-- **Mode 2**: Automatically find and route to the **nearest hospital/shelter** from a given source.
+* C++ for core graph construction and Dijkstra’s shortest path algorithm.
+* Python with Streamlit for frontend user interface and map visualization.
+* CSV files for static traffic, hospital, and coordinate data.
+* OpenRouteService API and Folium for map and routing visualizations.
 
-### Compile and Run
+## File Structure
 
-```bash
-g++ -std=c++11 main.cpp -o evacuation
-./evacuation mode start [destination]
-```
+EmergencyEvacuationProject/
+├── evacuation.cpp         # C++ backend implementing Dijkstra’s algorithm and CLI
+├── roads.csv              # Road network with distance, base travel time, and traffic multipliers
+├── safezone.csv           # Hospital/safe zone info: location, phone, capacity, etc.
+├── coordinate.csv         # Geographic coordinates (latitude, longitude) for nodes
+├── app.py                 # Streamlit frontend app to interact with backend and visualize routes
+├── README.md              # Project documentation
+└── requirements.txt       # Python dependencies for frontend
 
-#### Examples:
+## Setup & Installation
 
-```bash
-./evacuation 1 ClockTower ISBT
-./evacuation 2 RajpurRoad
-```
+### Prerequisites
 
-## 🌍 Frontend (Streamlit)
+* g++ compiler (supporting C++11 or above)
+* Python 3.7+
+* Python packages: streamlit, openrouteservice, folium, streamlit-folium
 
-### Features
-- Interactive map showing path with risk levels (color-coded).
-- User input for source/destination or auto-location.
-- Dynamic route display with time and distance info.
+### Steps
 
-### Run the App
+1. Clone the repository:
+   `git clone https://github.com/yourusername/EmergencyEvacuationProject.git`
+   `cd EmergencyEvacuationProject`
 
-```bash
-cd frontend
-streamlit run app.py
-```
+2. Compile the C++ backend:
+   `g++ evacuation.cpp -o evacuation`
 
-## 📊 CSV File Format
+3. Install Python dependencies:
+   `pip install -r requirements.txt`
 
-### `roads.csv`
+4. Run the Streamlit app:
+   `streamlit run app.py`
 
-```
-source,destination,distance_km,time_min,traffic_level
-ClockTower,ISBT,5.0,10,2
-ISBT,SubhashNagar,3.0,7,1
-...
-```
+## Usage
 
-### `coordinates.csv`
+1. Open the Streamlit app in your browser.
+2. Select one of the modes:
 
-```
-location,latitude,longitude
-ClockTower,30.3256,78.0437
-ISBT,30.3079,78.0483
-...
-```
+   * Mode 1: Find shortest path from start to end location.
+   * Mode 2: Find shortest path from start location to nearest hospital.
+3. Select the start location (and end location if Mode 1).
+4. Click **Find Path** to display the route on the map along with hospital details and travel metrics.
 
-### `safezones.csv`
+## CSV File Descriptions
 
-```
-name,latitude,longitude,type
-MaxHospital,30.3182,78.0535,hospital
-Shelter1,30.3290,78.0421,shelter
-...
-```
+* **roads.csv:** Contains road edges with fields: Node1, Node2, Distance (km), Base Travel Time (minutes), Traffic Multiplier.
+* **safezone.csv:** Contains hospital/safe zone details: Location, Phone, Capacity, Specialization, EmergencyServices, Type.
+* **coordinate.csv:** Contains node names and their latitude and longitude coordinates.
 
-## ✅ Requirements
+*All data is focused on locations within Dehradun city limits.*
 
-Install Python dependencies using:
+## GUI Screenshots
 
-```bash
-pip install -r requirements.txt
-```
+### Home Screen
 
-### `requirements.txt`
+![image](https://github.com/user-attachments/assets/6cd0c20d-c7c1-435a-8aef-bbd8c07f9ccf)
 
-```
-streamlit
-folium
-openrouteservice
-pandas
-```
+### Route Visualization
 
-## 🧠 Algorithm Used
+![image](https://github.com/user-attachments/assets/5adf952a-8d7a-472d-acd6-c8c2c7ef13da)
 
-This project uses a **modified Dijkstra's Algorithm** that prioritizes:
+### Hospital Details
 
-- Adjusted travel time based on traffic level.
-- Shortest safe path to reduce risk during emergency conditions.
+![image](https://github.com/user-attachments/assets/53064551-6f37-4406-96fb-50b749241eaf)
 
-## 📌 Future Improvements
-
-- Live traffic updates via API.
-- Real-time user location from mobile devices.
-- Multi-path options with comparative analysis.
-- Risk-level-based edge coloring on maps.
+---
