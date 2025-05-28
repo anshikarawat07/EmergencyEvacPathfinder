@@ -28,14 +28,14 @@ The system supports two main modes:
 
 ## File Structure
 
-EmergencyEvacuationProject/
-├── evacuation.cpp         # C++ backend implementing Dijkstra’s algorithm and CLI
-├── roads.csv              # Road network with distance, base travel time, and traffic multipliers
-├── safezone.csv           # Hospital/safe zone info: location, phone, capacity, etc.
-├── coordinate.csv         # Geographic coordinates (latitude, longitude) for nodes
-├── app.py                 # Streamlit frontend app to interact with backend and visualize routes
-├── README.md              # Project documentation
-└── requirements.txt       # Python dependencies for frontend
+EmergencyEvacuationProject/<br>
+├── evacuation.cpp # C++ backend implementing Dijkstra’s algorithm and CLI<br>
+├── roads.csv # Road network with distance, base travel time, and traffic multipliers<br>
+├── safezone.csv # Hospital/safe zone info: location, phone, capacity, etc.<br>
+├── coordinate.csv # Geographic coordinates (latitude, longitude) for nodes<br>
+├── app.py # Streamlit frontend app to interact with backend and visualize routes<br>
+├── README.md # Project documentation<br>
+└── requirements.txt # Python dependencies for frontend<br>
 
 ## Setup & Installation
 
