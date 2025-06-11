@@ -59,7 +59,7 @@ vector<string> loadHospitals(const string& filename) {
     return hospitals;
 }
 
-// DFS for path reconstruction
+
 void dfsPaths(const string& current, const string& start,
               const map<string, vector<string>>& prev,
               vector<string>& path, vector<vector<string>>& allPaths) {
@@ -78,8 +78,6 @@ void dfsPaths(const string& current, const string& start,
     }
     path.pop_back();
 }
-
-// Dijkstra's algorithm to find all shortest paths
 vector<vector<string>> dijkstraAllPaths(
     const map<string, map<string, pair<float, float>>>& graph,
     const string& start, const string& end,
